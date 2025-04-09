@@ -1,5 +1,5 @@
 // Fetch and load content.html into the #content div
-fetch('content.html')
+fetch('index.html')
     .then(response => response.text())
     .then(data => {
         document.getElementById('content').innerHTML = data;
@@ -26,13 +26,8 @@ document.addEventListener('keydown', function (e) {
 
 // Function to submit RSVP with name and attendance status
 function submitRSVP(attendance) {
-    const guestName = document.getElementById('guestName').value.trim();
+    const guestName = yehya;
     const googleSheetURL = 'https://script.google.com/macros/s/AKfycbzVqyDjK6c5mocbia2k8CrP4s3H90GkLmvFUIwyhCdRTAtIlQ7noIxdKi5L_QyTb9G-/exec'; 
-
-    if (!guestName) {
-        alert('Please enter your name before submitting.');
-        return;
-    }
 
     fetch(googleSheetURL, {
         method: 'POST',

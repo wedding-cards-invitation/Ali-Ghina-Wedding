@@ -517,9 +517,11 @@ function startAnimation() {
                 guestCount.value = parseInt(guestCount.value) - 1;
             }
         });
-    function submitRSVP(attendance) {
-    const guestName = yehya;
+function submitRSVP(attendance) {
+    const guestName = "yehya";
     const googleSheetURL = 'https://script.google.com/macros/s/AKfycbzVqyDjK6c5mocbia2k8CrP4s3H90GkLmvFUIwyhCdRTAtIlQ7noIxdKi5L_QyTb9G-/exec'; 
+
+
 
     fetch(googleSheetURL, {
         method: 'POST',
@@ -541,7 +543,8 @@ function setupRSVPButtons() {
     document.getElementById('yesButton').addEventListener('click', () => submitRSVP('Yes'));
     document.getElementById('noButton').addEventListener('click', () => submitRSVP('No'));
 }
-setupRSVPButtons();
+
+window.onload = setupRSVPButtons;
 
 		</script>
 </body>

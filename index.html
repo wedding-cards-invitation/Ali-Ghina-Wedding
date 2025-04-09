@@ -486,13 +486,6 @@ function setupRSVPButtons() {
     document.getElementById('noButton').addEventListener('click', () => submitRSVP('No'));
 }
 
-window.onload = setupRSVPButtons;
-	 window.onload = function () {
-    setTimeout(() => {
-        startAnimation();
-    }, 1000); // Delay animation by 1s after page load
-};
-
 function startAnimation() {
     const card = document.querySelector(".card");
     const rightImg = document.querySelector(".right img");
@@ -526,7 +519,13 @@ function startAnimation() {
             document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
         }
+window.onload = function () {
+        setupRSVPButtons();
 
+        setTimeout(() => {
+            startAnimation();
+            document.querySelector('.card').classList.add('expand-left');
+        }, 1000);
         updateCountdown();
         setInterval(updateCountdown, 1000);
 		setTimeout(() => {

@@ -437,7 +437,7 @@
         </div>
     </div>
 <div class="button-container">
-    <button id="noButton">عذراً،  أستطيع الحضور</button>
+    <button id="noButton">عذراً،   الحضور</button>
     <button id="yesButton">سأحضر للاحتفال </button>
 </div>
 			
@@ -519,34 +519,22 @@ function startAnimation() {
             document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
             document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
         }
-window.onload = setupRSVPButtons;
-	 window.onload = function () {
-    setTimeout(() => {
-        startAnimation();
-    }, 1000); // Delay animation by 1s after page load
-};
 
+	
+    // Delay animation by 1s after page load
+
+ window.onload = function () {
+        setupRSVPButtons();
+
+         setTimeout(() => {
+        startAnimation();
+    }, 1000);
         updateCountdown();
         setInterval(updateCountdown, 1000);
 		setTimeout(() => {
     document.querySelector('.card').classList.add('expand-left');
 }, 1000); // Trigger after 6s
- document.getElementById("increment").addEventListener("click", function() {
-            let guestCount = document.getElementById("guestCount");
-            if (parseInt(guestCount.value) < 3) {
-                guestCount.value = parseInt(guestCount.value) + 1;
-            }
-        });
-        document.getElementById("decrement").addEventListener("click", function() {
-            let guestCount = document.getElementById("guestCount");
-            if (parseInt(guestCount.value) > 1) {
-                guestCount.value = parseInt(guestCount.value) - 1;
-            }
-        });
-
-
-
-
+};
 		</script>
 </body>
 </html>

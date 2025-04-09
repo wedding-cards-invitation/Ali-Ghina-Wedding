@@ -517,7 +517,36 @@ function startAnimation() {
                 guestCount.value = parseInt(guestCount.value) - 1;
             }
         });
-    
+    function submitRSVP(attendance) {
+    const guestName = document.getElementById('guestName').value.trim();
+    const googleSheetURL = 'https://script.google.com/macros/s/AKfycbzVqyDjK6c5mocbia2k8CrP4s3H90GkLmvFUIwyhCdRTAtIlQ7noIxdKi5L_QyTb9G-/exec'; 
+
+    if (!guestName) {
+        alert('Please enter your name before submitting.');
+        return;
+    }
+
+    fetch(googleSheetURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: guestName, attending: attendance }),
+    }).then(() => {
+        alert(`Thank you, ${guestName}, for your response!`);
+    }).catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+    });
+}
+
+// Attach event listeners to RSVP buttons
+function setupRSVPButtons() {
+    document.getElementById('yesButton').addEventListener('click', () => submitRSVP('Yes'));
+    document.getElementById('noButton').addEventListener('click', () => submitRSVP('No'));
+}
+setupRSVPButtons();
 
 		</script>
 </body>

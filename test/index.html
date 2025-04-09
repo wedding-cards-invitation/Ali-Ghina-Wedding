@@ -26,7 +26,7 @@
 		
         
 <div class="button-container">
-    <button id="noButton">عذراً، لا أستطيع الحضور</button>
+    <button id="noButton">عذراً،  أستطيع الحضور</button>
     <button id="yesButton">!سأحضر للاحتفال معكم</button>
 </div>
 			
@@ -46,13 +46,10 @@
 	
 	 <script>
 	function submitRSVP(attendance) {
-    const guestName = yehya;
+    const guestName = "yehya";
     const googleSheetURL = 'https://script.google.com/macros/s/AKfycbzVqyDjK6c5mocbia2k8CrP4s3H90GkLmvFUIwyhCdRTAtIlQ7noIxdKi5L_QyTb9G-/exec'; 
 
-    if (!guestName) {
-        alert('Please enter your name before submitting.');
-        return;
-    }
+
 
     fetch(googleSheetURL, {
         method: 'POST',
@@ -75,7 +72,7 @@ function setupRSVPButtons() {
     document.getElementById('noButton').addEventListener('click', () => submitRSVP('No'));
 }
 
-
+window.onload = setupRSVPButtons;
 		</script>
 </body>
 </html>

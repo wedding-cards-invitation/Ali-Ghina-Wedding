@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Open Graph Meta Tags for WhatsApp Preview -->
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta property="og:title" content="Ali & Ghina's Wedding Invitation 🎉" />
+  <meta property="og:description" content="You're invited to our big day! Tap to RSVP and view event details." />
+  <meta property="og:image" content="https://i.imgur.com/RWXRpSA.jpeg" />
+  <meta property="og:url" content="https://lara24664.github.io/wedding_card/" />
+  <meta property="og:type" content="website" />
+    <title>Wedding Invitation</title>
+	
+</head>
+<body>
+
+    <div class="card">
+        <div class="left">
+		 <p id="aya1"> ﷽</p>
+		 <p id="aya">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا ۞<br> 
+           ۞ لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+		 <img src="logo.png" alt="Flower Decoration" class="flower">
+		
+        
+<div class="button-container">
+    <button id="noButton">عذراً، لا أستطيع الحضور</button>
+    <button id="yesButton">!سأحضر للاحتفال معكم</button>
+</div>
+			
+<div class="phone">
+    <div class="phone-input">
+		<p class="label1">70506242</p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .63 2.7 2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.7.63 2 2 0 0 1 1.72 2z"/>
+        </svg>
+		<p class="label1">:للإعتذار قبل تاريخ 1/6/2025 </p>
+    </div>
+    
+    <p class="label1 center-label">(٢)عدد الأشخاص</p>
+    <p class="label1">نوماً هنيئاً لأطفالكم</p>
+</div>
+
+	
+	 <script>
+	function submitRSVP(attendance) {
+    const guestName = yehya;
+    const googleSheetURL = 'https://script.google.com/macros/s/AKfycbzVqyDjK6c5mocbia2k8CrP4s3H90GkLmvFUIwyhCdRTAtIlQ7noIxdKi5L_QyTb9G-/exec'; 
+
+    if (!guestName) {
+        alert('Please enter your name before submitting.');
+        return;
+    }
+
+    fetch(googleSheetURL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: guestName, attending: attendance }),
+    }).then(() => {
+        alert(`Thank you, ${guestName}, for your response!`);
+    }).catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+    });
+}
+
+// Attach event listeners to RSVP buttons
+function setupRSVPButtons() {
+    document.getElementById('yesButton').addEventListener('click', () => submitRSVP('Yes'));
+    document.getElementById('noButton').addEventListener('click', () => submitRSVP('No'));
+}
+
+
+		</script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Ali & Ghina's Wedding Invitation 🎉" />
+    <meta property="og:description" content="You're invited to our big day! Tap to RSVP and view event details." />
+    <meta property="og:image" content="https://i.imgur.com/RWXRpSA.jpeg" />
+    <meta property="og:url" content="https://lara24664.github.io/wedding_card/" />
+    <meta property="og:type" content="website" />
+    <title>Wedding Invitation</title>
+	<style>
+		/* Remove margins & padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    .card {
+		display: flex;
+		width: 95%; /* Adjusts to 90% of the screen width */
+		max-width: 430px; /* Prevents it from exceeding 430px on larger screens */
+		background: #fff;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+		border-radius: 10px;
+		overflow: hidden;
+		margin: 0 auto; /* Centers the card on the screen */
+		background: url(https://i.imgur.com/8N9rFb0.png);
+		position: relative;
+	}
+	#aya1 { 
+		font-size: 1.5em; /* Increased font size */
+		letter-spacing: 1px;
+		margin-bottom: 5px;
+		color: #412649;
+		text-align: center;
+	}
+	.left p {
+            font-size: 8px;
+            color: #4a235a;
+            margin: 5px 0;
+    }
+	.left {
+		width: 0;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: width 1.5s ease-in-out;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.right {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		background-color: #000;
+		position: relative;
+		transition: width 1.5s ease-in-out, opacity 1.5s ease-in-out;
+	}
+
+	.right img {
+		width: 100vw;
+		height: 100vh;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: opacity 1.5s ease-in-out;
+	}
+	@keyframes shrinkImage {
+    0% {
+        width: 10%;
+        height: 100vh; /* Full-screen */
+    }
+    100% {
+        width: 150%;
+        height: 100%;
+    }
+	}
+
+	@keyframes disappearRight {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	/* Keyframe for the shadow effect */
+	@keyframes fadeToShadow {
+		0% {
+			filter: brightness(1);
+		}
+		100% {
+			filter: brightness(0.3); /* Makes the image dark as a shadow */
+		}
+	}
+	.card.expand-left .right img {
+				filter: brightness(0.3); /* Makes the image dark as a shadow */
+			}
+			/* Expanding the left section */
+			.card.expand-left .left {
+				width: 100%;
+			}
+	.card.expand-left .left {
+		width: 100%;
+	}
+
+	.card.expand-left .right {
+		width: 0;
+		opacity: 0;
+	}
+	#aya { 
+		font-size: 1em; /* Increased font size */
+		letter-spacing: 1px;
+		margin-bottom: 5px;
+		color: #412649;
+		text-align: center;
+	}
+	.card-top-text {
+		position: absolute;
+		top: 20px;
+		width: 100%;
+		/*text-align: center;/*
+		z-index: 2;
+		transition: width 1.5s ease-in-out;
+	}
+	.flower {
+		width: 50px !important;  /* Adjust this value as needed */
+		height: auto !important;
+		display: block;
+		margin: -10px auto 5px; /* Centers the image and adds spacing below */
+		animation: fadeIn 2s ease-in-out;
+		text-align: center;
+	}
+	.left h1 {
+            font-size: 13px;
+            margin: 0;
+            color: #4a235a;
+    }
+	#ayle {
+	font-size: 0.75em;
+	}
+	#zafaf {
+	font-size: 0.6em;
+	}
+	.alighinanames {
+		width: 140px; /* Adjust size as needed */
+		/*height: auto; */
+		display: block;
+		margin: 0 auto 5px; /* Centers the image and adds spacing below */
+		animation: fadeIn 2s ease-in-out;
+	}
+	.logo {
+		width: 40px; /* Adjust size as needed */
+		/*height: auto; */
+		display: block;
+		margin: 0 auto 5px; /* Centers the image and adds spacing below */
+		animation: fadeIn 2s ease-in-out;
+	}
+	.date-box {
+		  display: flex;
+		  justify-content: center; /* center horizontally */
+		  gap: 30px; /* space between each item */
+		  margin: 20px auto; /* add spacing + center container */
+		  font-size: 20px;
+		  color: #412649;
+		 /* background-color: #f9f5f8;*/
+		  padding: 10px 15px;
+		   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		   border: 1px solid #fdf8f6;
+		  border-radius: 10px;
+		  width: 280px; /* only as wide as the content */
+		  text-align: center;
+		    font-weight: bold;
+    }
+	.date-box div {
+            font-size: 0.8em;
+            font-weight: bold;
+	}
+	.sala {
+		width: 80px;
+		margin: 0 auto 0.5px; 
+	}
+	.location-link {
+           font-size: 1em;
+       /*  background: #d6cbd3;*/
+            color: #4a235a;
+            padding: 2px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 2px;
+            animation: fadeIn 3s ease-in-out;
+    }
+	.location-link:hover {
+            background-color: #d4c2d3;
+    }
+	.countdown {
+            font-size: 1em;
+            background: #d6cbd3;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 2px;
+            animation: fadeIn 3s ease-in-out;
+    } 
+	.countdown-container {
+          /*  background: #fdf8f6;*/
+            border-radius: 5px;
+            padding: 1px;
+            width: 140px; /* Small width */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #fdf8f6;
+            position: relative;
+            margin: 15px auto;
+            font-size: 8px;
+        }
+
+    .countdown-title {
+            font-size: 10px;
+            font-weight: bold;
+            color: #412649;
+            margin-bottom: 5px;
+			text-align: center;
+			align-items: center;
+        }
+
+    .countdownnew {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+    .countdown div {
+         /*   background: #7c5d7f;*/
+            padding: 3px;
+            border-radius: 3px;
+            width: 20px;
+            text-align: center;
+            font-size: 10px;
+        }
+	.button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 5px;
+    }
+
+    .button-container button {
+        font-size: 14px;
+        padding: 5px 10px;
+		border: 1px solid #fdf8f6;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+	.phone {
+        display: flex;
+        align-items: center;
+        gap: 50px; /* Adjust spacing between phone and text */
+		margin: 5px auto;
+		justify-content: center;
+    }
+	.phone-input {
+		display: flex;
+		align-items: center; /* Aligns the items vertically in the middle */
+		justify-content: center;
+	}
+
+	.phone-input svg {
+		margin-right: 10px; /* Adds some space between the icon and the phone number */
+	}
+
+	.phone-input p {
+		margin: 0; /* Removes any default margin that might cause spacing issues */
+		
+	}
+
+	</style>
+</head>
+<body>
+	<div class="card">
+		<div class="left">
+			<div class="card-top-text">
+				<p id="aya1"> ﷽</p>
+				<p id="aya">
+					وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا ۞<br> 
+					۞ لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+				</p>
+				<img src="logo.png" alt="Flower Decoration" class="logo">
+				<h1>حضرة السّيد الدّكتور يحيى طاهر</h1>
+				<p id="ayle">عائلة السيد الأستاذ سامي بركات &nbsp; و&nbsp; عائلة المرحوم الحاج حسن سعد</p>
+				<p id="zafaf">بدعوتكم لحضور زفاف ولديهما</p>
+				<img src="alighinanamesnew33.png" alt="Flower Decoration" class="alighinanames">
+				<p><div class="date-box">
+					<div>٨ مساءً</div>
+					<div>١٠<strong> , حزيران</strong></div>
+					<div>الثّلاثاء</div>
+				</div></p>
+				<div style="display: flex; justify-content: center; align-items: center; gap: 8px; text-align: center; height: 100%; width: 100%;">
+				<p style="margin: 0;">صيدا - الاوتستراد الشرقي خلف تاج غاردن</p>
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M12 2C8.13 2 5 5.13 5 9c0 4.68 5.81 11.24 6.05 11.5.29.31.78.31 1.06 0C13.19 20.24 19 13.68 19 9c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z" fill="black"/>
+				</svg>
+				</div>
+				<img src="salanew21.png" alt="Flower Decoration" class="sala">
+				<p class="location"><a class="location-link" 
+				href="https://maps.app.goo.gl/c4CCn4EXUwM6j7go9?g_st=com.google.maps.preview.copy" 
+				target="_blank">
+				Google ننتظركم – شاهد الموقع على خرائط </a></p>
+				<div class="countdown-container">
+					<div class="countdown-title">Countdown to our big day!</div>
+					<div class="countdownnew">
+						<div>
+							<span id="days">00</span>
+							<div class="label">أيام</div>
+						</div>
+						<div>
+							<span id="hours">00</span>
+							<div class="label">ساعات</div>
+						</div>
+						<div>
+							<span id="minutes">00</span>
+							<div class="label">دقائق</div>
+						</div>
+						<div>
+							<span id="seconds">00</span>
+							<div class="label">ثواني</div>
+						</div>
+					</div>
+				</div>
+				<div class="button-container">
+					<button id="noButton">عذراً، لا أستطيع الحضور</button>
+					<button id="yesButton">!سأحضر للاحتفال معكم</button>
+				</div>
+				<div class="phone">
+					<p class="label1">(2) عدد الأشخاص</p>
+					<p class="label1">نوماً هنيئاً لأطفالكم</p>
+				</div>
+				<div class="phone-input">
+					<p class="label1">70506242 </p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .63 2.7 2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.7.63 2 2 0 0 1 1.72 2z"/>
+					</svg>
+					<p class="label1">: للإعتذار قبل تاريخ 1/6/2025</p>
+				</div>
+			</div>
+
+		</div>
+		<div class="right">
+		    <img src="agimg1.jpeg" alt="Wedding Couple">
+        </div>
+	</div>
+	<script>
+			 function submitRSVP(attendance) {
+				const guestName = "yehya";
+				const googleSheetURL = 'https://script.google.com/macros/s/AKfycbzVqyDjK6c5mocbia2k8CrP4s3H90GkLmvFUIwyhCdRTAtIlQ7noIxdKi5L_QyTb9G-/exec'; 
+
+
+
+				fetch(googleSheetURL, {
+				method: 'POST',
+				mode: 'no-cors',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ name: guestName, attending: attendance }),
+				}).then(() => {
+				alert(`Thank you, ${guestName}, for your response!`);
+				}).catch(error => {
+				console.error('Error:', error);
+				alert('Something went wrong. Please try again.');
+				});
+			}
+			 // Attach event listeners to RSVP buttons
+			function setupRSVPButtons() {
+				document.getElementById('yesButton').addEventListener('click', () => submitRSVP('Yes'));
+				document.getElementById('noButton').addEventListener('click', () => submitRSVP('No'));
+			}
+
+			function startAnimation() {
+				const card = document.querySelector(".card");
+				const rightImg = document.querySelector(".right img");
+				const left = document.querySelector(".left");
+
+				// Start the animation
+				card.classList.add("expand-left");
+
+				// Listen for animation completion
+				left.addEventListener("transitionend", function onTransitionEnd(event) {
+				if (event.propertyName === "width") { // Only trigger when width transition ends
+				//    left.style.backgroundImage = `url(${rightImg.src})`;
+				rightImg.style.display = "none"; // Hide image
+				left.removeEventListener("transitionend", onTransitionEnd); // Remove listener to prevent multiple calls
+				}
+			});
+			}
+
+			function updateCountdown() {
+				const weddingDate = new Date("2025-06-10T20:00:00").getTime(); // Set the wedding date here
+				const now = new Date().getTime();
+				const timeLeft = weddingDate - now;
+
+				const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+				document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+				document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+				document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+				document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+			}
+
+	
+				// Delay animation by 1s after page load
+
+				 window.onload = function () {
+						setupRSVPButtons();
+
+						 setTimeout(() => {
+						startAnimation();
+					}, 1000);
+						updateCountdown();
+						setInterval(updateCountdown, 1000);
+						setTimeout(() => {
+					document.querySelector('.card').classList.add('expand-left');
+				}, 1000); // Trigger after 6s
+				};
+		</script>
+</body>
+</html>

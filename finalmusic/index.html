@@ -442,10 +442,11 @@
 				// Delay animation by 1s after page load
 
 				 window.onload = function () {
-						const music = document.getElementById('bg-music');
+						 const music = document.getElementById("bg-music");
+   						 music.play(); // This will likely get blocked
+					 
 						setupRSVPButtons();
-						music.muted = false;
-						music.play().catch(e => console.log("Play error:", e));
+						
 						 setTimeout(() => {
 						startAnimation();
 					}, 1000);

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Music Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    audio {
+      display: none; /* Hide player if you want background-only */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to the Music Page 🎶</h1>
+  <p>The background music is playing automatically (muted by default)</p>
+
+  <audio id="bg-music" autoplay muted loop>
+  <source src="emotional-piano-music-256262.mp3" type="audio/mp3">
+</audio>
+<script>
+  const music = document.getElementById('bg-music');
+
+  window.addEventListener('touchstart', () => {
+    music.muted = false;
+    music.play().catch(e => console.log("Play error:", e));
+  }, { once: true });
+</script>
+
+</body>
+</html>

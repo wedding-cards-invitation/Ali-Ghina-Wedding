@@ -18,33 +18,32 @@
   </style>
 </head>
 <body>
-  <div id="start-overlay">🎵 Tap to Start</div>
-  <audio id="bg-music" src="emotional-piano-music-256262.mp3" preload="auto" playsinline></audio>
+ 
+<audio id="bg-music" src="emotional-piano-music-256262.mp3" preload="auto" playsinline></audio>
+<div id="invisible-tap"></div>
 
-  <script>
-    const music = document.getElementById('bg-music');
-    const overlay = document.getElementById('start-overlay');
+<script>
+  const music = document.getElementById('bg-music');
+  const tapOverlay = document.getElementById('invisible-tap');
 
-    overlay.addEventListener('click', () => {
-      // Start music
-      music.muted = false;
-      music.play()
-        .then(() => {
-          console.log("Music started");
-        })
-        .catch(e => console.error("Play error:", e));
+  tapOverlay.addEventListener('click', () => {
+    music.muted = false;
+    music.play()
+      .then(() => {
+        console.log("Music started");
+      })
+      .catch(e => console.error("Play error:", e));
+    
+    tapOverlay.style.display = 'none';
 
-      // Hide overlay
-      overlay.style.display = 'none';
+    // Continue setup (e.g., RSVP logic)
+    setupRSVPButtons();
+  });
 
-      // Now run your RSVP setup etc.
-      setupRSVPButtons();
-    });
-
-    function setupRSVPButtons() {
-      // your logic here
-      console.log("RSVP Buttons ready");
-    }
-  </script>
+  function setupRSVPButtons() {
+    console.log("RSVP Buttons ready");
+    // Your RSVP logic here
+  }
+</script>
 </body>
 </html>

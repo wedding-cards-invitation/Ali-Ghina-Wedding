@@ -442,13 +442,18 @@
 				// Delay animation by 1s after page load
 
 				 window.onload = function () {
-						const music = document.getElementById("bg-music");
-
-   						 // Wait for any user gesture, then unmute and play
-							    window.addEventListener("touchstart", () => {
-							      music.muted = false;
-							      music.play();
-							    }, { once: true });
+						// Require a user interaction to start music
+					      document.addEventListener('touchstart', function playMusic() {
+					        const music = document.getElementById('bg-music');
+					        music.muted = false;
+					        music.play()
+					          .then(() => {
+					            console.log("Music is playing");
+					          })
+					          .catch(e => console.log("Play error:", e));
+					        // Remove the event listener after the first touch
+					        document.removeEventListener('touchstart', playMusic);
+					      });
 					 
 						setupRSVPButtons();
 						

@@ -364,7 +364,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(2) عدد الأشخاص</p>
+					<p id="ayle">(1) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -469,10 +469,7 @@
           card.classList.add("expand-left");
         }, 1000);
 
-        // Important: remove the event listener
-        card.removeEventListener("touchstart", handleFirstTouch);
-        card.removeEventListener("click", handleFirstTouch);
-        card.removeEventListener("pointerdown", handleFirstTouch);
+       
       };
 
       // Register all possible user interactions (some Androids prefer touchstart)

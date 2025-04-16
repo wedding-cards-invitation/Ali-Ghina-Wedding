@@ -444,19 +444,21 @@
 				 window.onload = function () {
 						// Require a user interaction to start music   document.addEventListener('touchstart', function playMusic() {
 					        const music = document.getElementById('bg-music');
-					        
-					      
-					 const tapOverlay = document.getElementById('invisible-tap');
+  const card = document.querySelector('.card');
 
-					  tapOverlay.addEventListener('click', () => {
-					    music.muted = false;
-					    music.play()
-					      .then(() => {
-					        console.log("Music started");
-					      })
-					      .catch(e => console.error("Play error:", e));
-					    
-					    tapOverlay.style.display = 'none';
+  // Only trigger once on first interaction
+  const handleCardClick = () => {
+    music.muted = false;
+    music.play()
+      .then(() => {
+        console.log("Music started");
+      })
+      .catch(e => console.error("Play error:", e));
+    
+    // Remove listener to avoid re-triggering
+    card.removeEventListener('click', handleCardClick);
+
+    // Your other setup
 
 						setupRSVPButtons();
 						

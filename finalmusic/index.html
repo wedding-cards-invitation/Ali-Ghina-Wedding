@@ -456,6 +456,11 @@
 				// Delay animation by 1s after page load
 
 				 window.onload = function () {
+					 setupRSVPButtons();
+						
+						 setTimeout(() => {
+						startAnimation();
+					}, 1000);
 						 const music = document.getElementById('bg-music');
 						  const tapOverlay = document.getElementById('invisible-tap');
 						
@@ -468,13 +473,6 @@
 						      .catch(e => console.error("Play error:", e));
 						    
 						    tapOverlay.style.display = 'none';
-
-
-						setupRSVPButtons();
-						
-						 setTimeout(() => {
-						startAnimation();
-					}, 1000);
 						updateCountdown();
 						setInterval(updateCountdown, 1000);
 						setTimeout(() => {

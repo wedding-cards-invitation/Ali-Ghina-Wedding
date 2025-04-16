@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music Autoplay Fix</title>
+  <style>
+    #start-overlay {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      z-index: 9999;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="start-overlay">🎵 Tap to Start</div>
+  <audio id="bg-music" src="emotional-piano-music-256262.mp3" preload="auto" playsinline></audio>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const overlay = document.getElementById('start-overlay');
+
+    overlay.addEventListener('click', () => {
+      // Start music
+      music.muted = false;
+      music.play()
+        .then(() => {
+          console.log("Music started");
+        })
+        .catch(e => console.error("Play error:", e));
+
+      // Hide overlay
+      overlay.style.display = 'none';
+
+      // Now run your RSVP setup etc.
+      setupRSVPButtons();
+    });
+
+    function setupRSVPButtons() {
+      // your logic here
+      console.log("RSVP Buttons ready");
+    }
+  </script>
+</body>
+</html>

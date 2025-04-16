@@ -448,40 +448,39 @@
 	
 				// Delay animation by 1s after page load
 
-				 window.onload = function () {
+				window.onload = function () {
   setupRSVPButtons();
   setTimeout(startAnimation, 1000);
 
   const card = document.getElementById("main-card");
   const music = document.getElementById("bg-music");
 
+  // Force audio to begin loading early
+  music.load();
+
   const handleFirstTouch = () => {
     music.muted = false;
-
     music.play()
       .then(() => console.log("✅ Music started"))
       .catch(err => console.error("❌ Play error:", err));
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
-
     setTimeout(() => {
       card.classList.add("expand-left");
     }, 1000);
   };
 
-  // Platform detection
   const isiPhone = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-  
+
   if (isiPhone) {
-    // iPhone: use click only
     card.addEventListener("click", handleFirstTouch, { once: true });
   } else {
-    // Android & others: use touchstart and pointerdown
     card.addEventListener("touchstart", handleFirstTouch, { once: true });
     card.addEventListener("pointerdown", handleFirstTouch, { once: true });
   }
 };
+
 
 		</script>
 </body>

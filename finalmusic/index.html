@@ -310,11 +310,7 @@
 <body>
 	<div class="card">
 		<div class="left">
-			<div id="invisible-tap">
-		</div>
-			<audio id="bg-music" preload="auto" playsinline>
-			<source src="emotional-piano-music-256262.mp3" type="audio/mp3">
-			</audio>
+			<audio id="bg-music" src="emotional-piano-music-256262.mp3" preload="auto" playsinline muted></audio>
 			<div class="card-top-text">
 				<p id="aya1"> ﷽</p>
 				<p id="aya">
@@ -453,30 +449,31 @@
 				// Delay animation by 1s after page load
 
 				 window.onload = function () {
-					 
-						 const music = document.getElementById('bg-music');
-						  const tapOverlay = document.getElementById('invisible-tap');
-						
-						  tapOverlay.addEventListener('click', () => {
-						    music.muted = false;
-						    music.play()
-						      .then(() => {
-						        console.log("Music started");
-						      })
-						      .catch(e => console.error("Play error:", e));
-						    
-						    tapOverlay.style.display = 'none';
-						setupRSVPButtons();
-						
-						 setTimeout(() => {
-						startAnimation();
-						}, 1000);
-						updateCountdown();
-						setInterval(updateCountdown, 1000);
-						setTimeout(() => {
-					document.querySelector('.card').classList.add('expand-left');
-				}, 1000); // Trigger after 6s
-				};
+				      setupRSVPButtons();
+				      setTimeout(startAnimation, 1000);
+				
+				      const music = document.getElementById('bg-music');
+				      const card  = document.querySelector('.card');
+				
+				      // Play music & trigger animations on first user interaction
+				      const onFirstTap = () => {
+				        music.muted = false;
+				        music.play()
+				          .then(() => console.log("🎵 Music started"))
+				          .catch(err => console.error("Play error:", err));
+				
+				        updateCountdown();
+				        setInterval(updateCountdown, 1000);
+				
+				        setTimeout(() => {
+				          card.classList.add('expand-left');
+				        }, 1000);
+				
+				        card.removeEventListener('pointerdown', onFirstTap);
+				      };
+				
+				      card.addEventListener('pointerdown', onFirstTap, { once: true });
+				    };
 		</script>
 </body>
 </html>

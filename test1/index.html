@@ -297,10 +297,15 @@
 		margin: 0; /* Removes any default margin that might cause spacing issues */
 		
 	}
-
+ audio {
+      display: none; /* Hide player if you want background-only */
+    }
 	</style>
 </head>
 <body>
+	  <audio id="bg-music" autoplay muted loop>
+  <source src="emotional-piano-music-256262.mp3" type="audio/mp3">
+</audio>
 	<div class="card">
 		<div class="left">
 			<div class="card-top-text">
@@ -356,7 +361,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(2) عدد الأشخاص</p>
+					<p id="ayle">(O) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -450,6 +455,12 @@
 						setTimeout(() => {
 					document.querySelector('.card').classList.add('expand-left');
 				}, 1000); // Trigger after 6s
+					 const music = document.getElementById('bg-music');
+
+  window.addEventListener('touchstart', () => {
+    music.muted = false;
+    music.play().catch(e => console.log("Play error:", e));
+  }, { once: true });
 				};
 		</script>
 </body>

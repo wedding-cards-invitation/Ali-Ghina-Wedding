@@ -290,28 +290,38 @@
 		justify-content: center;
     }
 	.phone-input {
-		display: flex;
-		align-items: center; /* Aligns the items vertically in the middle */
-		justify-content: center;
-	}
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
-	.phone-input svg {
-		margin-left: 10px; /* Adds some space between the icon and the phone number */
-		margin-right: 10px; /* Adds some space between the icon and the phone number */
-	}
-
-	.phone-input p {
-		margin: 0; /* Removes any default margin that might cause spacing issues */
-		
-	}
-.whatsapp-float-in-card {
+.whatsapp-icon-pill {
   background-color: #25D366;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   display: flex;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-icon-pill svg {
+  fill: white;
+}
+
+.phone-number {
+  font-weight: bold;
+  font-size: 14px;
+  color: #000;
+}
+
+.phone-input p {
+  margin: 0;
+  font-size: 14px;
 }
 
 
@@ -374,12 +384,12 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(2) عدد الأشخاص</p>
+					<p id="ayle">(3) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
-					<a href="https://wa.me/96170506242" class="whatsapp-float-in-card hidden" id="whatsapp-btn" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24">
+  <a href="https://wa.me/96170506242" target="_blank" class="whatsapp-icon-pill">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 24 24">
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 
         19.79 19.79 0 0 1-8.63-3.07 
         19.42 19.42 0 0 1-6-6A19.79 19.79 
@@ -391,9 +401,11 @@
         0 0 0 2.7.63 2 2 0 0 1 
         1.72 2z"/>
     </svg>
-  <p id="ayle">70506242</p></a>
-					<p id="ayle">: للإعتذار قبل تاريخ 1/6/2025</p>
-				</div>
+  </a>
+  <span class="phone-number">70506242</span>
+  <p>: للإعتذار قبل تاريخ 1/6/2025</p>
+</div>
+
 			</div>
 			
 		</div>

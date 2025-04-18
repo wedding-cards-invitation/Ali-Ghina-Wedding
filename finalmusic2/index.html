@@ -449,40 +449,25 @@
 				// Delay animation by 1s after page load
 
 				 window.onload = function () {
-      setupRSVPButtons();
-      setTimeout(startAnimation, 1000);
-
-      const card = document.getElementById("main-card");
-      const music = document.getElementById("bg-music");
-
-      // Force audio to preload
-      music.load();
-
-      const handleFirstTouch = () => {
-        console.log("Touch registered");
-
-        music.muted = false;
-
-        // Start audio
-        music.play()
-          .then(() => {
-            console.log("✅ Music started");
-          })
-          .catch(err => {
-            console.error("❌ Play error:", err);
-          });
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        setTimeout(() => {
-          card.classList.add("expand-left");
-        }, 1000);
-      };
-
-      // ✅ Only use pointerdown for best Android support
-      card.addEventListener("pointerdown", handleFirstTouch, { once: true });
-    };
+			      setupRSVPButtons();
+			      setTimeout(startAnimation, 1000);
+			      const music = document.getElementById('bg-music');
+			  const tapOverlay = document.getElementById('main-card');
+			  tapOverlay.addEventListener('click', () => {
+			    music.muted = false;
+			    music.play()
+			      .then(() => {
+			        console.log("Music started");
+			      })
+			      .catch(e => console.error("Play error:", e));
+			    tapOverlay.style.display = 'none'; };
+			        updateCountdown();
+			        setInterval(updateCountdown, 1000);
+			        setTimeout(() => {
+			          card.classList.add("expand-left");
+			        }, 1000);
+			      
+			    };
 
 
 		</script>

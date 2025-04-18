@@ -361,7 +361,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(O) عدد الأشخاص</p>
+					<p id="ayle">(1) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -445,6 +445,12 @@
 				// Delay animation by 1s after page load
 
 				 window.onload = function () {
+					  const music = document.getElementById('bg-music');
+
+					  window.addEventListener('touchstart', () => {
+					    music.muted = false;
+					    music.play().catch(e => console.log("Play error:", e));
+					  }, { once: true });
 						setupRSVPButtons();
 
 						 setTimeout(() => {
@@ -455,12 +461,7 @@
 						setTimeout(() => {
 					document.querySelector('.card').classList.add('expand-left');
 				}, 1000); // Trigger after 6s
-					 const music = document.getElementById('bg-music');
-
-  window.addEventListener('touchstart', () => {
-    music.muted = false;
-    music.play().catch(e => console.log("Play error:", e));
-  }, { once: true });
+					
 				};
 		</script>
 </body>

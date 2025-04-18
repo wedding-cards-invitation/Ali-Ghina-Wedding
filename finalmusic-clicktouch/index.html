@@ -380,7 +380,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(5) عدد الأشخاص</p>
+					<p id="ayle">(6) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -470,40 +470,45 @@
 				document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
 				document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
 			}
+window.onload = function () {
+  setupRSVPButtons();
+  setTimeout(startAnimation, 1000);
+ // ✅ These should be INSIDE the click handler
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
-	
-				// Delay animation by 1s after page load
+    setTimeout(() => {
+      card.classList.add("expand-left");
+    }, 1000);
+  const music = document.getElementById('bg-music');
+  const card = document.getElementById('main-card'); // assuming card is main-card
 
-				window.onload = function () {
+  card.addEventListener('touchstart', () => {
+    music.muted = false;
 
-				  setupRSVPButtons();
-				  setTimeout(startAnimation, 1000);
-					 updateCountdown();
-				  setInterval(updateCountdown, 1000);
+    music.play()
+      .then(() => {
+        console.log("🎵 Music started");
+      })
+      .catch(e => console.error("⚠️ Play error:", e));
 
-				  setTimeout(() => {
-					card.classList.add("expand-left");
-				  }, 1000);
-					const music = document.getElementById('bg-music');
-				const card = document.getElementById('main-card'); // assuming card is main-card
+   
+  });
+card.addEventListener('click', () => {
+    music.muted = false;
 
-				  const startInteraction = () => {
-				  music.muted = false;
-				  music.play()
-					.then(() => console.log("🎵 Music started"))
-					.catch(err => console.error("❌ Play error:", err));
+    music.play()
+      .then(() => {
+        console.log("🎵 Music started");
+      })
+      .catch(e => console.error("⚠️ Play error:", e));
 
-				 
+   
+  });
+};
 
-				  // Remove both listeners so it only triggers once
-				  card.removeEventListener('click', startInteraction);
-				  card.removeEventListener('touchstart', startInteraction);
-				};
 
-				card.addEventListener('click', startInteraction);
-				card.addEventListener('touchstart', startInteraction);
 
-				};
 
 
 		</script>

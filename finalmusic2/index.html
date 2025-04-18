@@ -364,7 +364,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(00000) عدد الأشخاص</p>
+					<p id="ayle">(200000) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -453,10 +453,9 @@
   setTimeout(startAnimation, 1000);
 
   const music = document.getElementById('bg-music');
-  const tapOverlay = document.getElementById('main-card');
   const card = document.getElementById('main-card'); // assuming card is main-card
 
-  tapOverlay.addEventListener('click', () => {
+  card.addEventListener('click', () => {
     music.muted = false;
 
     music.play()
@@ -464,8 +463,6 @@
         console.log("🎵 Music started");
       })
       .catch(e => console.error("⚠️ Play error:", e));
-
-    tapOverlay.style.display = 'none';
 
     // ✅ These should be INSIDE the click handler
     updateCountdown();

@@ -461,7 +461,7 @@
   const music = document.getElementById('bg-music');
   const card = document.getElementById('main-card'); // assuming card is main-card
 
-  card.addEventListener('click', () => {
+  card.addEventListener('touchstart', () => {
     music.muted = false;
 
     music.play()

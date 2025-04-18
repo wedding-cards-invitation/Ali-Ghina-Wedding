@@ -448,39 +448,41 @@
 	
 				// Delay animation by 1s after page load
 
-				window.onload = function () {
+				 window.onload = function () {
+      setupRSVPButtons();
+      setTimeout(startAnimation, 1000);
 
-				  setupRSVPButtons();
-				  setTimeout(startAnimation, 1000);
+      const card = document.getElementById("main-card");
+      const music = document.getElementById("bg-music");
 
-				  const card = document.getElementById("main-card");
-				  const music = document.getElementById("bg-music");
+      // Force audio to preload
+      music.load();
 
-				  const handleFirstTouch = () => {
-					music.muted = false;
+      const handleFirstTouch = () => {
+        console.log("Touch registered");
 
-					music.play()
-					  .then(() => console.log("✅ Music started"))
-					  .catch(err => console.error("❌ Play error:", err));
+        music.muted = false;
 
-					updateCountdown();
-					setInterval(updateCountdown, 1000);
+        // Start audio
+        music.play()
+          .then(() => {
+            console.log("✅ Music started");
+          })
+          .catch(err => {
+            console.error("❌ Play error:", err);
+          });
 
-					setTimeout(() => {
-					  card.classList.add("expand-left");
-					}, 1000);
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
 
-					// Important: remove the event listener
-					card.removeEventListener("touchstart", handleFirstTouch);
-					card.removeEventListener("click", handleFirstTouch);
-					card.removeEventListener("pointerdown", handleFirstTouch);
-				  };
+        setTimeout(() => {
+          card.classList.add("expand-left");
+        }, 1000);
+      };
 
-				  // Register all possible user interactions (some Androids prefer touchstart)
-				  card.addEventListener("touchstart", handleFirstTouch, { once: true });
-				  card.addEventListener("click", handleFirstTouch, { once: true });
-				  card.addEventListener("pointerdown", handleFirstTouch, { once: true });
-				};
+      // ✅ Only use pointerdown for best Android support
+      card.addEventListener("pointerdown", handleFirstTouch, { once: true });
+    };
 
 
 		</script>

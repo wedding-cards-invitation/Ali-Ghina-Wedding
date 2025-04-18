@@ -364,7 +364,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(200000) عدد الأشخاص</p>
+					<p id="ayle">(6000000) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -451,7 +451,13 @@
 				window.onload = function () {
   setupRSVPButtons();
   setTimeout(startAnimation, 1000);
+ // ✅ These should be INSIDE the click handler
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
+    setTimeout(() => {
+      card.classList.add("expand-left");
+    }, 1000);
   const music = document.getElementById('bg-music');
   const card = document.getElementById('main-card'); // assuming card is main-card
 
@@ -464,13 +470,7 @@
       })
       .catch(e => console.error("⚠️ Play error:", e));
 
-    // ✅ These should be INSIDE the click handler
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    setTimeout(() => {
-      card.classList.add("expand-left");
-    }, 1000);
+   
   });
 };
 

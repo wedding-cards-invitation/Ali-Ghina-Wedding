@@ -452,6 +452,12 @@
 
 				  setupRSVPButtons();
 				  setTimeout(startAnimation, 1000);
+					 updateCountdown();
+				  setInterval(updateCountdown, 1000);
+
+				  setTimeout(() => {
+					card.classList.add("expand-left");
+				  }, 1000);
 					const music = document.getElementById('bg-music');
 				const card = document.getElementById('main-card'); // assuming card is main-card
 
@@ -461,12 +467,7 @@
 					.then(() => console.log("🎵 Music started"))
 					.catch(err => console.error("❌ Play error:", err));
 
-				  updateCountdown();
-				  setInterval(updateCountdown, 1000);
-
-				  setTimeout(() => {
-					card.classList.add("expand-left");
-				  }, 1000);
+				 
 
 				  // Remove both listeners so it only triggers once
 				  card.removeEventListener('click', startInteraction);

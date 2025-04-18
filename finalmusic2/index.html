@@ -452,8 +452,8 @@
 			      setupRSVPButtons();
 			      setTimeout(startAnimation, 1000);
 			      const music = document.getElementById('bg-music');
-			  const tapOverlay = document.getElementById('main-card');
-			  tapOverlay.addEventListener('click', () => {
+			  const card = document.getElementById('main-card');
+			  card.addEventListener('click', () => {
 			    music.muted = false;
 			    music.play()
 			      .then(() => {

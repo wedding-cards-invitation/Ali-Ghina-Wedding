@@ -304,28 +304,29 @@
 		margin: 0; /* Removes any default margin that might cause spacing issues */
 		
 	}
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 56px;
-  height: 56px;
-  background-color: #25D366;
-  color: white;
-  border-radius: 50%;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition: background 0.3s ease, transform 0.2s ease;
-  text-decoration: none;
+.whatsapp-inline-container {
+  margin-top: 12px;
 }
 
-.whatsapp-float:hover {
-  background-color: #20b954;
-  transform: scale(1.05);
+.whatsapp-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
+
+.whatsapp-inline:hover {
+  background-color: #20b954;
+  transform: scale(1.02);
+}
+
 	</style>
 </head>
 <body>
@@ -385,22 +386,22 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(1000000000) عدد الأشخاص</p>
+					<p id="ayle">(9000000000) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
-					<a href="https://wa.me/96170506242" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.18 
-             2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .63 2.7 
-             2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 
-             2.11-.45 12.05 12.05 0 0 0 2.7.63 2 2 0 0 1 1.72 2z"/>
-  </svg>
-</a>
-
-  <span>70506242</span>
-</a>
-
+					<div class="whatsapp-inline-container">
+  <a href="https://wa.me/96170506242" class="whatsapp-inline" target="_blank">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 
+      19.42 19.42 0 0 1-6-6A19.79 19.79 0 0 1 2.1 4.18 
+      2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .63 2.7 
+      2 2 0 0 1-.45 2.11L8 10a16 16 0 0 0 6 6l1.5-1.5a2 2 0 0 1 
+      2.11-.45 12.05 12.05 0 0 0 2.7.63 2 2 0 0 1 1.72 2z"/>
+    </svg>
+    <span>70506242</span>
+  </a>
+</div>
 					<p id="ayle">: للإعتذار قبل تاريخ 1/6/2025</p>
 				</div>
 			</div>

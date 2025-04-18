@@ -364,7 +364,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(0) عدد الأشخاص</p>
+					<p id="ayle">(90) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -462,6 +462,17 @@
   const card = document.getElementById('main-card'); // assuming card is main-card
 
   card.addEventListener('touchstart', () => {
+    music.muted = false;
+
+    music.play()
+      .then(() => {
+        console.log("🎵 Music started");
+      })
+      .catch(e => console.error("⚠️ Play error:", e));
+
+   
+  });
+card.addEventListener('click', () => {
     music.muted = false;
 
     music.play()

@@ -364,7 +364,7 @@
 					<button id="yesButton">!سأحضر للاحتفال معكم</button>
 				</div>
 				<div class="phone">
-					<p id="ayle">(4) عدد الأشخاص</p>
+					<p id="ayle">(100) عدد الأشخاص</p>
 					<p id="ayle">نوماً هنيئاً لأطفالكم</p>
 				</div>
 				<div class="phone-input">
@@ -475,6 +475,7 @@
 
   if (isiPhone) {
     card.addEventListener("click", handleFirstTouch, { once: true });
+	   card.addEventListener("touchstart", handleFirstTouch, { once: true });
   } else {
     card.addEventListener("touchstart", handleFirstTouch, { once: true });
     card.addEventListener("pointerdown", handleFirstTouch, { once: true });
